@@ -221,12 +221,10 @@ mod tests {
 
     #[test]
     fn test_create_chat_completion_request() {
-        let request = CreateChatCompletionRequest::new(
-            "openai/gpt-4o",
-            vec![Message::user("Hello")],
-        )
-        .with_max_tokens(1024)
-        .with_temperature(0.7);
+        let request =
+            CreateChatCompletionRequest::new("openai/gpt-4o", vec![Message::user("Hello")])
+                .with_max_tokens(1024)
+                .with_temperature(0.7);
 
         assert_eq!(request.model, "openai/gpt-4o");
         assert_eq!(request.max_tokens, Some(1024));
